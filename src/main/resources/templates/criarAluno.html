@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{css/main.css}">
+        <link rel="stylesheet" th:href="@{css/spectre.css}">
+        <title>CRUD - Spring Boot</title>
+    </head>
+    <body>
+
+        <ul id="navbar">
+            <li><a th:href="@{/}">Criar aluno</a></li>
+            <li><a th:href="@{/todos}">Alunos da Fatec</a></li>
+            <li><a th:href="@{/homens}">Homens</a></li>
+            <li><a th:href="@{/mulheres}">Mulheres</a></li>
+            <li><a th:href="@{/reprovados}">Reprovados</a></li>
+            <li><a th:href="@{/si}">SI</a></li>
+            <li><a th:href="@{/ads}">ADS</a></li>
+            <li><a th:href="@{/log}">Logística</a></li>
+            <li><a th:href="@{/ge}">Gestão Empresarial</a></li>
+            <li><a th:href="@{/gp}">Gestão Portuária</a></li>
+        </ul>
+
+        <form id="form_criar" action="#"
+              th:action="@{/criado}"
+              th:object="${aluno}"
+              method="post">
+
+            <h3 class="titulo_form">
+                Por favor ensira os dados do novo aluno a ser criado a baixo.
+            </h3>
+
+            <p id="aviso_p_validacao">
+                Atenção para validação!
+            </p>
+
+            <p>
+                Após preencher seus campo de aluno, você será capaz de fazer as devidas
+                atualizações ou exclusão do aluno caso deseje.
+            </p>
+
+            <label id="lbl_aluno" for="select_aluno">Digite o nome do Aluno</label>
+            <input
+                    class ="form-input"
+                    id="select_aluno"
+                    type="text"
+                    placeholder="seu nome"
+                    th:field="*{nome}"
+                    required>
+
+            <label for="select_sexo">Escolha o sexo do aluno</label>
+
+            <select class="btn btn-link dropdown-toggle" id="select_sexo" th:field="*{sexo}" required>
+                <option disabled value="none" >Insira o sexo</option>
+                <option th:value="'M'" th:text="Masculino"></option>
+                <option th:value="'F'" th:text="Feminino"></option>
+            </select>
+
+            <label for="select_curso">Escolha o curso</label>
+
+            <select class="btn btn-link dropdown-toggle" id="select_curso" th:field="*{codigoCurso}" required>
+                <option disabled value="-1" >Insira o curso</option>
+                <option th:value="${1}">Análise e Desenvolvimento de Sistemas</option>
+                <option th:value="${2}">Gestão Empresarial</option>
+                <option th:value="${3}">Gestão Portuária</option>
+                <option th:value="${4}">Logística</option>
+                <option th:value="${5}">Sistemas p/ Internet</option>
+            </select>
+
+            <label for="nota">Digite a nota do Aluno</label>
+            <input
+                    class="form-input"
+                    id="nota"
+                    type="number"
+                    step="0.1"
+                    min="0.0" max="10.0"
+                    placeholder="exemplo de nota: 7.5"
+                    th:field="*{nota}"
+                    required >
+
+
+            <label for="input_idade">Selecione a idade do Aluno</label>
+
+            <input
+                    class="form-input"
+                    id="input_idade"
+                    type="number" min="16"
+                    max="120"
+                    placeholder="digite sua idade"
+                    th:field="*{idade}"
+                    required>
+
+            <button id="btn_criar" class="btn btn-primary" type="submit">Cadastrar</button>
+        </form>
+
+
+    </body>
+</html>

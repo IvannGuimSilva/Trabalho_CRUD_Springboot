@@ -1,0 +1,17 @@
+server:
+  port : 8080 [porta escolhida]
+
+spring:
+  datasource:
+    platform: postgres [banco escolhido]
+    url: jdbc:postgresql://[url do host gerado pelo heroku]:5432/[nome banco gerado pelo heroku]
+    username: [nome usuário gerado pelo heroku]
+    password: [senha gerada pelo heroku]
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always [configuração de inicialização da conexão do banco do heroku com a aplicação java ]
+    initialize: true
+    schema: classpath:/ schema-postgresql.sql [nome do meu arquivo.sql dentro de resources usado]
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

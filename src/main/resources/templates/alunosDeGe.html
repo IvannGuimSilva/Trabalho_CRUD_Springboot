@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/main.css}">
+    <link rel="stylesheet" th:href="@{css/spectre.css}">
+    <title>CRUD - Alunos de Gestão Portuária</title>
+</head>
+<body>
+
+    <ul id="navbar">
+        <li><a th:href="@{/}">Criar aluno</a></li>
+        <li><a th:href="@{/todos}">Alunos da Fatec</a></li>
+        <li><a th:href="@{/homens}">Homens</a></li>
+        <li><a th:href="@{/mulheres}">Mulheres</a></li>
+        <li><a th:href="@{/reprovados}">Reprovados</a></li>
+        <li><a th:href="@{/si}">SI</a></li>
+        <li><a th:href="@{/ads}">ADS</a></li>
+        <li><a th:href="@{/log}">Logística</a></li>
+        <li><a th:href="@{/ge}">Gestão Empresarial</a></li>
+        <li><a th:href="@{/gp}">Gestão Portuária</a></li>
+    </ul>
+
+    <div id="container_tabela">
+        <table class="table table-striped table-primary">
+            <thead class="ttop">
+
+            <tr class="table-info">
+                <th><b>ID</b></th>
+                <th><b>NOME</b></th>
+                <th><b>SEXO</b></th>
+                <th><b>CURSO</b></th>
+                <th><b>NOTA</b></th>
+                <th><b>IDADE</b></th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+            <tr th:each="aluno : ${allDeGELista}">
+
+                <th th:text="${aluno.id}"></th>
+                <th th:text="${aluno.nome}"></th>
+                <th th:text="${aluno.sexo}"></th>
+
+                <th th:switch="${aluno.codigoCurso}">
+                    <span th:case="'1'" th:text="'ADS'"></span>
+                    <span th:case="'2'" th:text="'GE'"></span>
+                    <span th:case="'3'" th:text="'GP'"></span>
+                    <span th:case="'4'" th:text="'LOG'"></span>
+                    <span th:case="'5'" th:text="'SI'"></span>
+                </th>
+
+                <th th:text="${aluno.nota}"></th>
+                <th th:text="${aluno.idade}"></th>
+                <th>
+                    <a th:href="@{'atualizar/' + ${aluno.id}}">
+                        <button class="btns_editar">editar</button>
+                    </a>
+                </th>
+                <th>
+                    <form th:action="@{'apagar/' + ${aluno.id}}" method=post>
+                        <button type="submit" class="btns_apagar">
+                            apagar
+                        </button>
+                    </form>
+                </th>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

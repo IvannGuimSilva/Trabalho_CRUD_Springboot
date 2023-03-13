@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+* {box-sizing: border-box;}
+
+html,body {
+    margin: 0;
+    border: 0;
+    background-color: #f3f2f9 !important;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Design Menu */
+
+#navbar {
+    background-color: #fff;
+    margin: 0px !important;
+    padding: 15px 10px;
+    width: 100%;
+    box-shadow: 0px -21px 26px 2px #434343;
+}
+
+ul li {
+    display: inline-block;
+    margin: 15px 10px;
+}
+
+ul li a {
+    font-size: 0.92rem;
+    font-weight: normal;
+    text-decoration: none !important;
+}
+
+ul li a:hover {
+    color: #3b4351;
+    transition: .4s ease-in-out;
+}
+
+
+.btns_editar,
+.btns_apagar {
+    min-width: fit-content;
+    background-color: #3F51B5;
+    box-shadow: 0px 0px 0px 2px #b8c2ff;
+    border: 0px;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.btns_apagar {
+    background-color: #e00851;
+    box-shadow: 0px 0px 0px 2px #ffa2c1;
+}
+
+/* Formulário Criar Aluno: */
+
+#form_criar, #form_atualizar {
+    max-width: 450px;
+    margin: 75px auto 0px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px 0px #deddeb;
+}
+
+label { margin: 8px 0px; }
+
+#lbl_aluno {
+    margin-top: 0px !important;
+}
+
+#select_sexo, #select_curso {
+    border: 1px solid #bcc3ce;
+    color: #3F51B5;
+    font-weight: 600;
+}
+
+#input_idade {
+    border-color: #bcc3ce;
+}
+
+#btn_criar, #btn_atualizar {
+    margin-top: 20px;
+    width: 100%;
+    height: 2.1rem;
+    box-shadow: 0px 0px 0px 3px #b8c2ff;
+    border-color: transparent;
+    background-color: #3f51b5;
+}
+
+#btn_criar:hover, #btn_atualizar:hover {
+    background-color: #263584;
+    border-color: transparent;
+    transition: .4s ease-in-out;
+}
+
+.titulo_form {
+    font-size: 1.18rem;
+}
+
+#aviso_p_validacao {
+    background-color: #e9f0ff;
+    margin: 5px 0;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 19px;
+    font-size: 13px;
+}
+
+
+
+
+#container_tabela {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    height: 500px;
+    width: 80%;
+    max-width: 980px;
+    min-width: 200px;
+    margin-top: 75px;
+}
+
+/* Design Tabelas: */
+
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    border-collapse: collapse;
+    border-radius: 3px;
+}
+
+table th { border-bottom: none; }
+thead { background-color: #fff; }
+thead th b { color: #3b4351; font-weight: bold; }
+tbody th { font-weight: normal; }
+
+.table th {
+    border-bottom-width: 0px !important;
+}
+
+table th { /* Colunas dentro das linhas das tabelas. */
+    padding: 10px 15px !important;
+    text-align: center;
+}
+
+.table.table-striped tbody tr:nth-of-type(even) {
+    background: #fff !important;
+}

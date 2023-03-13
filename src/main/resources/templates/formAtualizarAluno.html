@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{../css/main.css}">
+        <link rel="stylesheet" th:href="@{../css/spectre.css}">
+        <title>CRUD - Atualizar Aluno</title>
+    </head>
+    <body>
+
+        <ul id="navbar">
+            <li><a th:href="@{/}">Criar aluno</a></li>
+            <li><a th:href="@{/todos}">Alunos da Fatec</a></li>
+            <li><a th:href="@{/homens}">Homens</a></li>
+            <li><a th:href="@{/mulheres}">Mulheres</a></li>
+            <li><a th:href="@{/reprovados}">Reprovados</a></li>
+            <li><a th:href="@{/si}">SI</a></li>
+            <li><a th:href="@{/ads}">ADS</a></li>
+            <li><a th:href="@{/log}">Logística</a></li>
+            <li><a th:href="@{/ge}">Gestão Empresarial</a></li>
+            <li><a th:href="@{/gp}">Gestão Portuária</a></li>
+        </ul>
+
+            <form id="form_atualizar"
+                  action="#"
+                  th:action="@{'/atualizar/' + ${idAntigoAluno}}"
+                  method="post">
+
+                <h3 class="titulo_form">
+                    Por favor ensira os dados para atualizar o aluno abaixo.
+                </h3>
+
+                <p id="aviso_p_validacao">
+                    Atenção para validação!
+                </p>
+
+                <p>
+                    Atualize os dados do aluno
+                    <strong><span th:text="${antigoAlunoDados.nome}"></span></strong>.
+                    Após preencher seus campo de aluno, você será capaz de fazer as
+                    devidas atualizações novamente ou exclusão caso deseje.
+                </p>
+
+                <label id="lbl_aluno" for="aluno">Atualize o nome do Aluno</label>
+                <input
+                        id="aluno"
+                        class="form-input"
+                        type="text"
+                        placeholder="seu nome"
+                        th:field="*{antigoAlunoDados.nome}"
+                        required>
+
+                <label for="select_sexo">Atualize o sexo do aluno</label>
+
+                <select id="select_sexo" class="btn btn-link dropdown-toggle"
+                        th:field="*{antigoAlunoDados.sexo}" required>
+
+                    <option disabled value="none" >Insira o sexo</option>
+                    <option th:value="'M'" th:text="Masculino"></option>
+                    <option th:value="'F'" th:text="Feminino"></option>
+                </select>
+
+                <label for="nota">Atualize a nota do Aluno</label>
+                <input
+                        id="nota"
+                        class="form-input"
+                        type="number"
+                        step="0.1"
+                        min="0.0" max="10.0"
+                        placeholder="exemplo de nota: 7.5"
+                        th:field="*{antigoAlunoDados.nota}"
+                        required >
+
+
+                <label for="idade">Atualize a idade do Aluno</label>
+
+                <input
+                        id="idade"
+                        class="form-input"
+                        type="number" min="16"
+                        max="120"
+                        placeholder="digite sua idade"
+                        th:field="*{antigoAlunoDados.idade}"
+                        required>
+
+                <button id="btn_atualizar" class="btn btn-primary" type="submit">
+                    Atualizar aluno
+                </button>
+
+            </form>
+
+    </body>
+</html>
